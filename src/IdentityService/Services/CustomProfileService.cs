@@ -19,11 +19,12 @@ namespace IdentityService.Services
         public async Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
             var user = await _userManager.GetUserAsync(context.Subject);
+
             var existingClaims = await _userManager.GetClaimsAsync(user);
 
             var claims = new List<Claim>
             {
-                new Claim("username", user.UserName)
+                new Claim("username", user.UserName!)
             };
 
             context.IssuedClaims.AddRange(claims);
