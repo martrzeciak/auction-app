@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuctionService.Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20240422012341_Outbox")]
+    [Migration("20240429210153_Outbox")]
     partial class Outbox
     {
         /// <inheritdoc />
