@@ -39,6 +39,7 @@ namespace IdentityService
                     AllowOfflineAccess = true,
                     AllowedScopes = { "openid", "profile", "auctionApp" },
                     AccessTokenLifetime = 3600*24*30,  
+                    AlwaysIncludeUserClaimsInIdToken = true
                 },
                 // m2m client credentials flow client
                 //new Client

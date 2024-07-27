@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react'
 import AuctionCard from './AuctionCard';
 import AppPagination from '../components/AppPagination';
 import { Auction, PagedResult } from '@/types';
-import { getData } from '../actions/auctionActions';
 import Filters from './Filters';
 import { useParamsStore } from '../hooks/userParamsStore';
 import qs from 'query-string';
 import EmptyFilter from '../components/EmptyFilter';
+import { getData } from '../actions/auctionActions';
 
 
 
