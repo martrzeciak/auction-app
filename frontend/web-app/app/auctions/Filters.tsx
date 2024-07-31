@@ -1,9 +1,9 @@
-import { Button } from 'flowbite-react';
 import React from 'react'
 import { useParamsStore } from '../hooks/userParamsStore';
 import { AiOutlineClockCircle, AiOutlineSortAscending } from 'react-icons/ai';
 import { BsFillStopCircleFill, BsStopwatch } from 'react-icons/bs';
 import { GiFinishLine, GiFlame } from 'react-icons/gi';
+import { Button, ButtonGroup } from 'flowbite-react';
 
 const pageSizeButtons = [4, 8, 12];
 
@@ -53,7 +53,7 @@ export default function Filters() {
         <div className='flex justify-between items-center mb-4'>
             <div>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Filter by</span>
-                <Button.Group>
+                <ButtonGroup>
                     {filterButtons.map(({label, icon: Icon, value}) => (
                         <Button
                             key={value}
@@ -65,12 +65,12 @@ export default function Filters() {
                             {label}
                         </Button>
                     ))}
-                </Button.Group>
+                </ButtonGroup>
             </div>
 
             <div>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Order by</span>
-                <Button.Group>
+                <ButtonGroup>
                     {orderButtons.map(({label, icon: Icon, value}) => (
                         <Button
                             key={value}
@@ -82,12 +82,12 @@ export default function Filters() {
                             {label}
                         </Button>
                     ))}
-                </Button.Group>
+                </ButtonGroup>
             </div>
             
             <div>
                 <span className='uppercase text-sm text-gray-500 mr-2'>Page size</span>
-                <Button.Group>
+                <ButtonGroup>
                     {pageSizeButtons.map((value, i) => (
                         <Button key={i}
                             onClick={() => setParams({ pageSize: value })}
@@ -97,7 +97,7 @@ export default function Filters() {
                             {value}
                         </Button>
                     ))}
-                </Button.Group>
+                </ButtonGroup>
             </div>
         </div>
     )
