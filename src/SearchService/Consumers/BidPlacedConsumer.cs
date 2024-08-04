@@ -17,10 +17,15 @@ namespace SearchService.Consumers
 
             var auction = await DB.Find<Item>().OneAsync(context.Message.AuctionId);
 
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@> Consuming bid placed {context.Message.BidStatus} ");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@> Consuming bid placed {context.Message.Amount} ");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@> Consuming bid placed {auction.CurrentHighBid} ");
+
             if (context.Message.BidStatus.Contains("Accepted")
                 && context.Message.Amount > auction.CurrentHighBid)
             {
                 auction.CurrentHighBid = context.Message.Amount;
+                Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@> Consuming bid placed {context.Message.Amount} ");
                 await auction.SaveAsync();
             }
         }
